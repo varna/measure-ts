@@ -1,0 +1,23 @@
+{
+  "name": "@farmis/format-unit",
+  "version": "1.0.0",
+  "description": "Format length or area units to human readable Strings.",
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesusCrow/format-unit.git"
+  },
+  "keywords": [
+    "format unit",
+    "format units",
+    "format length",
+    "format area"
+  ],
+  "author": "Paulius Varna",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/JesusCrow/format-unit/issues"
+  },
+  "homepage": "https://github.com/JesusCrow/format-unit#readme",
+}
