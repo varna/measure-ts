@@ -6,7 +6,7 @@ Format length or area units to human readable Strings.
 
 ```js
 // install
-import formatUnit from 'format-unit'
+import formatUnit from '@farmis/format-unit'
 
 // meters to ha
 formatUnit('area')(200000)('ha')
