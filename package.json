@@ -1,5 +1,5 @@
 {
-  "name": "@farmis/format-unit",
+  "name": "format-unit",
   "version": "1.0.0",
   "description": "Format length or area units to human readable Strings.",
   "main": "index.mjs",
