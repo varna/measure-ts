@@ -12,7 +12,7 @@ import formatUnit from 'format-unit'
 formatUnit('area')(200000)('ha')
 
 // ha to meters
-formatUnit('area')(200000, 'ha')('m')
+formatUnit('area')(200000)('m')
 
 // meters to "prettiest" unit
 formatUnit('area')(200000)(['m2', 'a', 'ha', 'km2'])

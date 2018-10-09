@@ -7,7 +7,7 @@ export const lenghtUnits = {
   'ft': { unit: 'ft', scale: 0.3048 },
   'league': { unit: 'league', scale: 4828.0417 },
   'league(nautical)': { unit: 'league(nautical)', scale: 5556 },
-  'mile': { unit: 'mi', scale: 1609.344 },
+  'mi': { unit: 'mi', scale: 1609.344 },
   'yd': { unit: 'yd', scale: 0.9144 },
 }
 
@@ -15,7 +15,7 @@ export const areaUnits = {
   default: { unit: 'm²', scale: 1 },
   'm2': { unit: 'm²', scale: 1 },
   'cm2': { unit: 'cm²', scale: 0.0001 },
-  'km2': { unit: 'km²', cale: 1000000 },
+  'km2': { unit: 'km²', scale: 1000000 },
   'a': { unit: 'a', scale: 100 },
   'ha': { unit: 'ha', scale: 10000 },
   'in2': { unit: 'in²', scale: 0.00064516 },
@@ -25,28 +25,28 @@ export const areaUnits = {
   'mi2': { unit: 'mi²', scale: 2589988.1103 },
 }
 
-function formatUnit (units, value, inputUnit, outputUnit) {
+function formatUnit (units, value, outputUnit) {
   if (outputUnit) {
+    let unit;
     if (outputUnit.constructor === String && units[outputUnit]) {
-      const { unit, scale } = units[outputUnit]
-      return Number((value / scale).toFixed(3)).toString() + ' ' + unit
-    }
-
-    if (outputUnit.constructor === Array) {
-      outputUnit.filter(unit => Object.keys(units).includes(unit))
-      const { unit, scale } = outputUnit
+      unit = units[outputUnit]
+    } else if (outputUnit.constructor === Array) {
+      unit = outputUnit
+        .filter(unit => Object.keys(units).includes(unit))
         .reverse()
-        .map(unit => units[unit])
-        .find(({ scale }) => value / scale > 1) || units.default
-      return Number((value / scale).toFixed(3)).toString() + ' ' + unit
+        .find(unit => (value / units[unit].scale > 1))
+      if (unit) unit = units[unit];
+    } else {
+      unit = units.default
     }
+    return Number(value / unit.scale).toFixed(3).toString() + ' ' + unit.unit
   }
 }
 
-const formatUnits = unitType => (value, inputUnit) => outputUnit => {
+const formatUnits = unitType => value => outputUnit => {
   switch (unitType) {
-    case 'length': return formatUnit(lenghtUnits, value, inputUnit, outputUnit)
-    case 'area': return formatUnit(areaUnits, value, inputUnit, outputUnit)
+    case 'length': return formatUnit(lenghtUnits, value, outputUnit)
+    case 'area': return formatUnit(areaUnits, value, outputUnit)
     default: throw new Error('Bad type provided, must be "area" or "length"')
   }
 }
