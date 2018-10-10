@@ -1,9 +1,12 @@
 {
   "name": "format-unit",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Format length or area units to human readable Strings.",
   "main": "index.mjs",
   "module": "index.mjs",
+  "scripts": {
+    "test": "node --experimental-modules test.mjs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JesusCrow/format-unit.git"

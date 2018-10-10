@@ -27,17 +27,15 @@ export const areaUnits = {
 
 function formatUnit (units, value, outputUnit) {
   if (outputUnit) {
-    let unit;
+    let unit = units.default
     if (outputUnit.constructor === String && units[outputUnit]) {
       unit = units[outputUnit]
     } else if (outputUnit.constructor === Array) {
-      unit = outputUnit
+      const unitIndex = outputUnit
         .filter(unit => Object.keys(units).includes(unit))
         .reverse()
         .find(unit => (value / units[unit].scale > 1))
-      if (unit) unit = units[unit];
-    } else {
-      unit = units.default
+      if (unitIndex) unit = units[unitIndex];
     }
     return Number(value / unit.scale).toFixed(3).toString() + ' ' + unit.unit
   }
