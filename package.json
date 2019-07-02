@@ -1,4 +1,5 @@
 {
+  "version": "1.0.5",
   "name": "format-unit",
   "description": "Format length or area units to human readable Strings.",
   "author": {
