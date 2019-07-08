@@ -6,7 +6,7 @@
     "name": "Paulius Varna",
     "email": "varna@farmis.com"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "homepage": "https://github.com/varna/format-unit#readme",
   "repository": {
     "type": "git",
