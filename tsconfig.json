@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "esModuleInterop": true
+    "module": "esnext"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
