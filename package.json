@@ -1,10 +1,10 @@
 {
-  "version": "1.0.6",
-  "name": "format-unit",
-  "description": "Format length or area units to human readable Strings.",
+  "version": "2.0.0",
+  "name": "measure-unit",
+  "description": "Convert or print measurement units units: length, area, volume and weight",
   "author": {
     "name": "Paulius Varna",
-    "email": "varna@farmis.com"
+    "email": "paul.varna@gmail.com"
   },
   "license": "MIT",
   "homepage": "https://github.com/varna/format-unit#readme",
@@ -16,12 +16,10 @@
     "url": "https://github.com/varna/format-unit/issues"
   },
   "keywords": [
+    "measure",
     "unit",
-    "units",
-    "length",
-    "area",
-    "format",
-    "convert"
+    "convert",
+    "print"
   ],
   "scripts": {
     "version": "pack build",
