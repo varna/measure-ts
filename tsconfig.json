@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "module": "esnext"
+    "module": "esnext",
+    "strict": true
   },
   "include": ["src/index.ts"],
   "exclude": ["node_modules", "**/__tests__/*"]
