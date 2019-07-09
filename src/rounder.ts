@@ -12,7 +12,7 @@ export default function rounder(
 ) {
   const pow = Math.pow(10, exponent)
 
-  return function round(value) {
+  return function round(value: number) {
     return roundingFunction(value * pow + epsilon) / pow
   }
 }
