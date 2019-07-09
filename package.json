@@ -29,12 +29,7 @@
   "@pika/pack": {
     "pipeline": [
       [
-        "@pika/plugin-standard-pkg",
-        {
-          "exclude": [
-            "__tests__/**/*"
-          ]
-        }
+        "@pika/plugin-ts-standard-pkg"
       ],
       [
         "@pika/plugin-build-node"
@@ -48,12 +43,11 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
     "@pika/pack": "^0.4.0",
+    "@pika/plugin-ts-standard-pkg": "^0.4.0",
     "@pika/plugin-build-node": "^0.4.0",
     "@pika/plugin-build-types": "^0.4.0",
     "@pika/plugin-build-web": "^0.4.0",
-    "@pika/plugin-standard-pkg": "^0.4.0",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
