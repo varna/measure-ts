@@ -18,12 +18,7 @@ export default class Measure extends Number implements Number {
     super(value)
   }
 
-  public to = (
-    unitString: string | string[]
-    // unitName?: string,
-    // prefix?: string,
-    // suffix?: string
-  ): Measure => {
+  public to = (unitString: string | string[]): Measure => {
     // check if squared or cubed
     let trimmed = ''
     if (Array.isArray(unitString)) {

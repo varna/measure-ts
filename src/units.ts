@@ -342,7 +342,7 @@ export const ton_short: Unit = {
   type: MASS
 }
 
-export default {
+const units = {
   metre,
   yard,
   foot,
@@ -377,3 +377,5 @@ export default {
   ton_long,
   ton_short
 }
+
+export default units
