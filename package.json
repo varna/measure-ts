@@ -50,7 +50,7 @@
     "@pika/plugin-ts-standard-pkg": "^0.4.0",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "23",
     "typescript": "^3.5.2"
   },
   "dependencies": {}
