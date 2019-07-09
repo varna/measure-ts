@@ -24,7 +24,8 @@
   "scripts": {
     "version": "pack build",
     "test": "jest",
-    "dev": "jest --watch"
+    "dev": "jest --watch",
+    "deploy": "pack publish"
   },
   "@pika/pack": {
     "pipeline": [
