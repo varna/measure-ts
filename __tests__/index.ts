@@ -13,6 +13,13 @@ describe('Measure Class', () => {
     expect(res).toBe('1 m')
   })
 
+  test('from', () => {
+    // 1 gal => 3.79 l
+    const measure = new Measure(1, 'gal')
+    const res = String(measure.to('l'))
+    expect(String(res)).toBe('3.79 l')
+  })
+
   // test('Without "new"' () => {
 
   // })

@@ -14,18 +14,20 @@ export default class Measure extends Number implements Number {
   public suffix = ''
   public round = 2
 
-  constructor(value: number | string | Measure) {
+  constructor(value: number | string | Measure, unitString?: string) {
     super(value)
+    if (unitString) {
+      const { unit, prefix, suffix, ratio } = findUnit(unitString.trim())
+      this.symbol = unit
+      this.prefix = prefix
+      this.suffix = suffix
+      this.ratio = 1 / ratio
+    }
   }
 
-  public to = (unitString: string | string[]): Measure => {
+  public to = (unitString: string): Measure => {
     // check if squared or cubed
-    let trimmed = ''
-    if (Array.isArray(unitString)) {
-      trimmed = unitString[0].trim()
-    } else {
-      trimmed = unitString.trim()
-    }
+    let trimmed = unitString.trim()
 
     const { unit, prefix, suffix, ratio } = findUnit(trimmed)
     this.symbol = unit
