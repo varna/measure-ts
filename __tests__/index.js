@@ -1,4 +1,4 @@
-import Measure, { measureFrom } from '../src'
+import Measure, { measureFrom } from '../pkg'
 
 describe('Measure Class', () => {
   test('.valueOf()', () => {
@@ -127,7 +127,7 @@ describe('Length units', () => {
   })
 
   test('mi', () => {
-    const metre = new Measure(1_609.344)
+    const metre = new Measure(1609.344)
     const res = String(metre.to('mi'))
     expect(res).toBe('1 mi')
   })
@@ -171,7 +171,7 @@ describe('Area units', () => {
   })
 
   test('km2', () => {
-    const measure = new Measure(1_000_000)
+    const measure = new Measure(1000000)
     const res = measure.to('km2')
     expect(String(res)).toBe('1 km²')
   })

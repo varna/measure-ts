@@ -23,8 +23,7 @@
   ],
   "scripts": {
     "version": "pack build",
-    "test": "jest",
-    "dev": "jest --watch"
+    "test": "pack build && tyu"
   },
   "@pika/pack": {
     "pipeline": [
@@ -42,13 +41,10 @@
   "devDependencies": {
     "@pika/pack": "^0.4.0",
     "@pika/plugin-build-node": "^0.4.0",
-    "@pika/plugin-build-types": "^0.4.0",
     "@pika/plugin-build-web": "^0.4.0",
     "@pika/plugin-ts-standard-pkg": "^0.4.0",
-    "@types/jest": "23",
-    "jest": "23",
-    "ts-jest": "23",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "tyu": "^1.0.6"
   },
   "dependencies": {}
 }

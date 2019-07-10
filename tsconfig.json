@@ -4,5 +4,6 @@
     "module": "esnext",
     "esModuleInterop": true
   },
-  "include": ["src/index.ts"]
+  "include": ["src/index.ts"],
+  "exclude": [".vscode", "node_modules", "pkg", "src/__tests__"]
 }
