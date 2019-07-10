@@ -4,23 +4,31 @@ Convert or print measurement units units: length, area, volume and weight.
 
 ## Usage
 
-```ts
-import Measure, { measureFrom } from '../src'
+Class based API:
 
-// 10_000 => 10_000 m² => 1 ha
-new Measure(10_000).to('ha')
+```js
+import Measure from 'measure-ts'
 
-// 1 ha => 10_000 m²
-new Measure(1, 'ha').to('m2')
+const measure = new Measure(1)
+Number(measure) // 1
+String(measure) // "1 m"
 
-// 1 gal => 3.79 l
-new Measure(1, 'gal').to('l')
+const ha = new Measure(2, 'ha') // 2
+String(ha) // "2 ha"
+const ha2m2 = ha.to('m2') // 20_000
+String(ha2m2) // "20_000 m²"
+```
+
+Pretty unit chooser:
+
+```js
+import { measureFrom } from 'measure-ts'
 
 const measure = measureFrom('m2', 'a', 'ha', 'km2')
-measure(1) // 1 m²
-measure(100) // 100 m² => 1 a
-measure(10_000) // 10_000 m² => 1 ha
-measure(1_000_000) // 1_000_000 m² => 1 km²
+measure(1) // 1 || "1 m²"
+measure(100) // 100 || "1 a"
+measure(10000) // 10_000 ||  "1 ha"
+measure(1000000) // 1_000_000 ||  "1 km²"
 ```
 
 ## Roadmap
