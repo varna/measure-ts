@@ -1,5 +1,5 @@
 {
-  "version": "2.0.6",
+  "version": "1.0.6",
   "name": "measure-ts",
   "description": "Convert or print measurement units units: length, area, volume and weight",
   "author": {
@@ -36,9 +36,6 @@
       ],
       [
         "@pika/plugin-build-web"
-      ],
-      [
-        "@pika/plugin-build-types"
       ]
     ]
   },
@@ -48,8 +45,8 @@
     "@pika/plugin-build-types": "^0.4.0",
     "@pika/plugin-build-web": "^0.4.0",
     "@pika/plugin-ts-standard-pkg": "^0.4.0",
-    "@types/jest": "^24.0.15",
-    "jest": "^24.8.0",
+    "@types/jest": "23",
+    "jest": "23",
     "ts-jest": "23",
     "typescript": "^3.5.2"
   },
