@@ -41,7 +41,7 @@ export default class Measure extends Number implements Number {
     return this.clone(newValue)
   }
 
-  public clone(value) {
+  public clone(value: number) {
     const measure = new Measure(value)
     measure.ratio = this.ratio
     measure.symbol = this.symbol

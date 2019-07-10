@@ -1,7 +1,18 @@
 import findUnit from './findUnit'
 import Measure from './measure'
 
-const toMeasure = ({ prefix, unit, suffix }, value) => {
+const toMeasure = (
+  {
+    prefix,
+    unit,
+    suffix
+  }: {
+    prefix: string
+    unit: string
+    suffix: string
+  },
+  value: number
+) => {
   const unitString = prefix + unit + suffix
   return new Measure(value).to(unitString)
 }
