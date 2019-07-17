@@ -1,4 +1,4 @@
-import Measure, { measureFrom } from '../pkg'
+import Measure, { measureFrom } from '../src'
 
 describe('Measure Class', () => {
   test('.valueOf()', () => {
