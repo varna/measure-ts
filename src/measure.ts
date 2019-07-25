@@ -1,6 +1,5 @@
-// import siPrefixes from './SIPrefixes'
-// import units, { LENGTH } from './units'
 import findUnit from './findUnit'
+import { UnitKey } from './units'
 
 /**
  * Measure space in meters.
@@ -14,10 +13,10 @@ export default class Measure extends Number implements Number {
   public suffix = ''
   public round = 2
 
-  constructor(value: number | string | Measure, unitString?: string) {
+  constructor(value: number | string | Measure, unitString?: UnitKey) {
     super(value)
     if (unitString) {
-      const { unit, prefix, suffix, ratio } = findUnit(unitString.trim())
+      const { unit, prefix, suffix, ratio } = findUnit(unitString)
       this.symbol = unit
       this.prefix = prefix
       this.suffix = suffix
@@ -25,11 +24,8 @@ export default class Measure extends Number implements Number {
     }
   }
 
-  public to = (unitString: string): Measure => {
-    // check if squared or cubed
-    let trimmed = unitString.trim()
-
-    const { unit, prefix, suffix, ratio } = findUnit(trimmed)
+  public to = (unitString: UnitKey): Measure => {
+    const { unit, prefix, suffix, ratio } = findUnit(unitString)
     this.symbol = unit
     this.prefix = prefix
     this.suffix = suffix
