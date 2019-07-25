@@ -1,5 +1,6 @@
 import findUnit from './findUnit'
 import Measure from './measure'
+import { UnitKey } from './units'
 
 const toMeasure = (
   {
@@ -14,18 +15,29 @@ const toMeasure = (
   value: number
 ) => {
   const unitString = prefix + unit + suffix
-  return new Measure(value).to(unitString)
+  return new Measure(value).to(<UnitKey>unitString)
 }
 
-const createMeasureSelector = (...args: string[]) => {
-  const units = args.map(findUnit).sort((a, b) => b.ratio - a.ratio)
+/**
+ * Creates a function that finds best looking unit for value from a list of provided units.
+ * @param unitKeys an Array of unit identifiers.
+ * @returns {(value: number) => Measure} Finds best looking unit for pretty printing and returns Measure with it.
+ */
+const createMeasureSelector = (...unitKeys: UnitKey[]) => {
+  const units = unitKeys.map(findUnit).sort((a, b) => b.ratio - a.ratio)
 
-  return function(value: number) {
+  /**
+   * Finds best looking unit for pretty printing and returns Measure with it.
+   *
+   * @param value quantity/value of measure.
+   * @returns {Measure} new Measure(value, bestLookingUnit)
+   */
+  const finder = (value: number) => {
     const found = units.reduce(
       // find smallest unit larger than 1
       (previousUnit, currentUnit) => {
-        const currentQuantity = Number(toMeasure(currentUnit, value)) //currentUnit.quantity(value)
-        const previousQuantity = Number(toMeasure(previousUnit, value)) // previousUnit.quantity(value)
+        const currentQuantity = Number(toMeasure(currentUnit, value))
+        const previousQuantity = Number(toMeasure(previousUnit, value))
 
         return previousQuantity < 1 || currentQuantity < previousQuantity
           ? currentUnit
@@ -41,6 +53,8 @@ const createMeasureSelector = (...args: string[]) => {
       return foundMeasure
     }
   }
+
+  return finder
 }
 
 export default createMeasureSelector
