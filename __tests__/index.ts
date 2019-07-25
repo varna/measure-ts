@@ -262,10 +262,10 @@ describe('Volume units', () => {
     expect(String(res)).toBe('1 pt')
   })
 
-  test('pt', () => {
+  test('pint', () => {
     const measure = new Measure(0.000568261)
-    const res = measure.to('pint_long')
-    expect(String(res)).toBe('1 pt')
+    const res = measure.to('pint')
+    expect(String(res)).toBe('1 pint')
   })
 
   test('fl oz', () => {
@@ -301,16 +301,16 @@ describe('Weight units', () => {
     const res = measure.to('t')
     expect(String(res)).toBe('1 t')
   })
-  test('t US', () => {
+  test('ton', () => {
     const measure = new Measure(907.185)
-    const res = measure.to('ton_short')
-    expect(String(res)).toBe('1 t')
+    const res = measure.to('ton')
+    expect(String(res)).toBe('1 ton')
   })
 
-  test('t UK', () => {
+  test('longton', () => {
     const measure = new Measure(1016.05)
-    const res = measure.to('ton_long')
-    expect(String(res)).toBe('1 t')
+    const res = measure.to('longton')
+    expect(String(res)).toBe('1 longton')
   })
 
   test('lb', () => {
@@ -349,15 +349,15 @@ describe('Weight units', () => {
     expect(String(res)).toBe('1 qr')
   })
 
-  test('cwt UK', () => {
+  test('longcwt', () => {
     const measure = new Measure(50.8)
-    const res = measure.to('hundredweight_long')
-    expect(String(res)).toBe('1 cwt')
+    const res = measure.to('longcwt')
+    expect(String(res)).toBe('1 longcwt')
   })
 
-  test('cwt US', () => {
+  test('cwt', () => {
     const measure = new Measure(45.36)
-    const res = measure.to('hundredweight_short')
+    const res = measure.to('cwt')
     expect(String(res)).toBe('1 cwt')
   })
 })

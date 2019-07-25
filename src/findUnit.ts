@@ -1,11 +1,11 @@
-import units from './units'
+import units, { UnitKey } from './units'
 import siPrefixes from './SIPrefixes'
 
 const SQUARE_SYMBOLS = ['²', '2']
 const CUBE_SYMBOLS = ['³', '3']
 
 const findUnit = (
-  unitString: string
+  unitString: UnitKey
 ): {
   unit: string
   prefix: string
