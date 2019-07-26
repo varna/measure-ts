@@ -1,4 +1,4 @@
-import units, { UnitKey } from './units'
+import units, { UnitKey } from './units/index.js'
 import siPrefixes from './SIPrefixes'
 
 const SQUARE_SYMBOLS = ['²', '2']
