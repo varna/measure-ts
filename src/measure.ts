@@ -1,5 +1,5 @@
 import findUnit from './findUnit'
-import { UnitKey } from './units/index.js'
+import { UnitKey } from './units/index'
 
 /**
  * Measure of value with unit.

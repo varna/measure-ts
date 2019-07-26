@@ -1,6 +1,6 @@
 import findUnit from './findUnit'
 import Measure from './measure'
-import { UnitKey } from './units/index.js'
+import { UnitKey } from './units/index'
 
 const toMeasure = (
   {
