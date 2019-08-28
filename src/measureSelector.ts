@@ -33,11 +33,15 @@ const createMeasureSelector = (...unitKeys: UnitKey[]) => {
    * @returns {Measure} new Measure(value, bestLookingUnit)
    */
   const finder = (value: number) => {
+    const sign = value < 0 ? -1 : 1
+    const absoluteValue = value * sign
+    // console.log({ value, absoluteValue, sign })
+
     const found = units.reduce(
       // find smallest unit larger than 1
       (previousUnit, currentUnit) => {
-        const currentQuantity = Number(toMeasure(currentUnit, value))
-        const previousQuantity = Number(toMeasure(previousUnit, value))
+        const currentQuantity = Number(toMeasure(currentUnit, absoluteValue))
+        const previousQuantity = Number(toMeasure(previousUnit, absoluteValue))
 
         return previousQuantity < 1 || currentQuantity < previousQuantity
           ? currentUnit
@@ -46,11 +50,11 @@ const createMeasureSelector = (...unitKeys: UnitKey[]) => {
       units[0] // default to first/largest unit
     )
 
-    const foundMeasure = toMeasure(found, value)
+    const foundMeasure = toMeasure(found, absoluteValue)
     if (Number(foundMeasure) < 1) {
-      return toMeasure(units[units.length - 1], value)
+      return toMeasure(units[units.length - 1], absoluteValue * sign)
     } else {
-      return foundMeasure
+      return toMeasure(found, absoluteValue * sign)
     }
   }
 
