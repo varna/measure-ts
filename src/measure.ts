@@ -82,7 +82,11 @@ export default class Measure extends Number implements Number {
    */
   public toString = (): string => {
     const pow = Math.pow(10, this.round)
-    const rounded = Math.round(this.valueOf() * pow + Number.EPSILON) / pow
+    const value = this.valueOf()
+    const sign = value < 0 ? -1 : 1
+    const absoluteValue = value * sign
+    const rounded =
+      (Math.round(absoluteValue * pow + Number.EPSILON) / pow) * sign
     return `${rounded} ${this.prefix}${this.symbol}${this.suffix}`
   }
 }
