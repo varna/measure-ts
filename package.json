@@ -22,6 +22,7 @@
     "print"
   ],
   "scripts": {
+    "build": "pika build",
     "version": "pack build",
     "test": "jest",
     "dev": "jest --watch"
@@ -40,10 +41,10 @@
     ]
   },
   "devDependencies": {
-    "@pika/pack": "^0.4.0",
-    "@pika/plugin-build-node": "^0.4.0",
-    "@pika/plugin-build-web": "^0.4.0",
-    "@pika/plugin-ts-standard-pkg": "^0.4.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.5.0",
+    "@pika/plugin-build-web": "^0.5.0",
+    "@pika/plugin-ts-standard-pkg": "^0.5.0",
     "@types/jest": "^24.0.15",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
