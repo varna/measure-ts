@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "name": "measure-ts",
   "description": "Convert or print measurement units units: length, area, volume and weight",
   "author": {
