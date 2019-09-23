@@ -6,13 +6,15 @@
  * @param epsilon floating point number patching
  */
 export default function rounder(
-  exponent = 0,
+  exponent = 2,
   roundingFunction = Math.round,
-  epsilon = 0
+  epsilon = Number.EPSILON
 ) {
   const pow = Math.pow(10, exponent)
 
   return function round(value: number) {
-    return roundingFunction(value * pow + epsilon) / pow
+    const sign = value < 0 ? -1 : 1
+    const absoluteValue = value * sign
+    return (roundingFunction(absoluteValue * pow + epsilon) / pow) * sign
   }
 }
