@@ -25,7 +25,6 @@ describe('Measure Class', () => {
   // })
 })
 
-
 describe('unitKey', () => {
   test('m', () => {
     const measure = new Measure(1, 'm')
@@ -37,11 +36,30 @@ describe('unitKey', () => {
   })
   test('m2', () => {
     const measure = new Measure(1, 'm2')
-    expect(measure.unitKey).toBe('m²')
+    expect(measure.unitKey).toBe('m2')
   })
   test('cm3', () => {
     const measure = new Measure(1, 'cm3')
-    expect(measure.unitKey).toBe('cm³')
+    expect(measure.unitKey).toBe('cm3')
+  })
+})
+
+describe('extension', () => {
+  test('m', () => {
+    const measure = new Measure(1, 'm')
+    expect(measure.extension).toBe('m')
+  })
+  test('cm', () => {
+    const measure = new Measure(1, 'cm')
+    expect(measure.extension).toBe('cm')
+  })
+  test('m2', () => {
+    const measure = new Measure(1, 'm2')
+    expect(measure.extension).toBe('m²')
+  })
+  test('cm3', () => {
+    const measure = new Measure(1, 'cm3')
+    expect(measure.extension).toBe('cm³')
   })
 })
 

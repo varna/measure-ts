@@ -24,11 +24,11 @@ export default class Measure extends Number implements Number {
    * @param value value/quantity of unit
    * @param unitKey key representation of unit
    */
-  constructor(value: number | string | Measure, unitKey?: UnitKey) {
+  constructor(value: number | string | Measure, unitKey: UnitKey = 'm') {
     super(value)
     if (unitKey) {
+      this.unitKey = unitKey
       const { unit, prefix, suffix, ratio } = findUnit(unitKey)
-      this.unitKey = <UnitKey>(prefix + unit + suffix)
       this.symbol = unit
       this.prefix = prefix
       this.suffix = suffix
@@ -43,7 +43,7 @@ export default class Measure extends Number implements Number {
    */
   public to = (unitKey: UnitKey): Measure => {
     const { unit, prefix, suffix, ratio } = findUnit(unitKey)
-    this.unitKey = <UnitKey>(prefix + unit + suffix)
+    this.unitKey = unitKey
     this.symbol = unit
     this.prefix = prefix
     this.suffix = suffix
@@ -81,6 +81,10 @@ export default class Measure extends Number implements Number {
     return parseFloat(this.toPrecision(this.precision))
   }
 
+  get extension () {
+    return this.prefix + this.symbol + this.suffix
+  }
+
   /**
    * Returns the string representation for this instance.
    */
@@ -91,6 +95,6 @@ export default class Measure extends Number implements Number {
     const absoluteValue = value * sign
     const rounded =
       (Math.round(absoluteValue * pow + Number.EPSILON) / pow) * sign
-    return `${rounded} ${this.unitKey}`
+    return `${rounded} ${this.extension}`
   }
 }
