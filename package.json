@@ -1,5 +1,5 @@
 {
-  "version": "3.1.2",
+  "version": "3.1.4",
   "name": "measure-ts",
   "description": "Convert or print measurement units units: length, area, volume and weight",
   "author": {
@@ -25,7 +25,8 @@
     "build": "pika build",
     "version": "pack build",
     "test": "jest",
-    "dev": "jest --watch"
+    "dev": "jest --watch",
+    "publish": "pack publish"
   },
   "@pika/pack": {
     "pipeline": [
