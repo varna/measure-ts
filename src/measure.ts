@@ -14,6 +14,7 @@ export default class Measure extends Number implements Number {
   public precision = 12
   public exponent = 1
   public ratio = 1
+  public unitKey = <UnitKey>'m'
   public symbol = 'm'
   public prefix = ''
   public suffix = ''
@@ -27,6 +28,7 @@ export default class Measure extends Number implements Number {
     super(value)
     if (unitKey) {
       const { unit, prefix, suffix, ratio } = findUnit(unitKey)
+      this.unitKey = <UnitKey>(prefix + unit + suffix)
       this.symbol = unit
       this.prefix = prefix
       this.suffix = suffix
@@ -41,6 +43,7 @@ export default class Measure extends Number implements Number {
    */
   public to = (unitKey: UnitKey): Measure => {
     const { unit, prefix, suffix, ratio } = findUnit(unitKey)
+    this.unitKey = <UnitKey>(prefix + unit + suffix)
     this.symbol = unit
     this.prefix = prefix
     this.suffix = suffix
@@ -61,6 +64,7 @@ export default class Measure extends Number implements Number {
   public clone(value: number) {
     const measure = new Measure(value)
     measure.ratio = this.ratio
+    measure.unitKey = this.unitKey
     measure.symbol = this.symbol
     measure.prefix = this.prefix
     measure.suffix = this.suffix
@@ -87,6 +91,6 @@ export default class Measure extends Number implements Number {
     const absoluteValue = value * sign
     const rounded =
       (Math.round(absoluteValue * pow + Number.EPSILON) / pow) * sign
-    return `${rounded} ${this.prefix}${this.symbol}${this.suffix}`
+    return `${rounded} ${this.unitKey}`
   }
 }
