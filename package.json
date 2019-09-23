@@ -25,7 +25,8 @@
     "build": "pika build",
     "version": "pack build",
     "test": "jest",
-    "dev": "jest --watch"
+    "dev": "jest --watch",
+    "publish": "pack publish"
   },
   "@pika/pack": {
     "pipeline": [
