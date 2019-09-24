@@ -5,14 +5,15 @@ const SQUARE_SYMBOLS = ['²', '2']
 const CUBE_SYMBOLS = ['³', '3']
 
 const findUnit = (
-  unitString: UnitKey
+  unitKey: UnitKey
 ): {
   unit: string
   prefix: string
   suffix: string
   ratio: number
+  unitKey: UnitKey
 } => {
-  let trimmed = unitString.trim()
+  let trimmed = <string>unitKey.trim()
   const lastCharacter = trimmed.slice(-1)
 
   let suffix = ''
@@ -74,7 +75,8 @@ const findUnit = (
     unit: (unit && unit.symbol) || '',
     prefix: (prefix && prefix.symbol) || '',
     suffix,
-    ratio
+    ratio,
+    unitKey
   }
 }
 

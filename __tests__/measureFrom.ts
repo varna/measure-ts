@@ -30,3 +30,10 @@ describe('Rounding negative e2', () => {
   test('-0.00005', () => expect(String(selector(-0.00005))).toBe('-0.01 cm'))
   test('-0.00009', () => expect(String(selector(-0.00009))).toBe('-0.01 cm'))
 })
+
+describe('unitKey', () => {
+  test('1 m3', () => {
+    const measure = measureFrom('m3')(1000)
+    expect(measure.unitKey).toBe('m3')
+  })
+})

@@ -2,22 +2,6 @@ import findUnit from './findUnit'
 import Measure from './measure'
 import { UnitKey } from './units/index'
 
-const toMeasure = (
-  {
-    prefix,
-    unit,
-    suffix
-  }: {
-    prefix: string
-    unit: string
-    suffix: string
-  },
-  value: number
-) => {
-  const unitString = prefix + unit + suffix
-  return new Measure(value).to(<UnitKey>unitString)
-}
-
 /**
  * Creates a function that finds best looking unit for value from a list of provided units.
  * @param unitKeys an Array of unit identifiers.
@@ -40,8 +24,8 @@ const createMeasureSelector = (...unitKeys: UnitKey[]) => {
     const found = units.reduce(
       // find smallest unit larger than 1
       (previousUnit, currentUnit) => {
-        const currentQuantity = Number(toMeasure(currentUnit, absoluteValue))
-        const previousQuantity = Number(toMeasure(previousUnit, absoluteValue))
+        const currentQuantity = Number(new Measure(absoluteValue).to(currentUnit.unitKey))
+        const previousQuantity = Number(new Measure(absoluteValue).to(previousUnit.unitKey))
 
         return previousQuantity < 1 || currentQuantity < previousQuantity
           ? currentUnit
@@ -50,11 +34,12 @@ const createMeasureSelector = (...unitKeys: UnitKey[]) => {
       units[0] // default to first/largest unit
     )
 
-    const foundMeasure = toMeasure(found, absoluteValue)
+    const foundMeasure = new Measure(absoluteValue).to(found.unitKey)
     if (Number(foundMeasure) < 1) {
-      return toMeasure(units[units.length - 1], absoluteValue * sign)
+      return new Measure(absoluteValue * sign).to(units[units.length - 1].unitKey)
     } else {
-      return toMeasure(found, absoluteValue * sign)
+      return new Measure(absoluteValue * sign).to(found.unitKey)
+      
     }
   }
 
