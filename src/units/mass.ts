@@ -62,7 +62,7 @@ export const stone: Unit = {
 export const quarter: Unit = {
   name: 'quarter',
   symbol: 'qr',
-  ratio: pound.ratio * 28,
+  ratio: pound.ratio * 25,
   type
 }
 
