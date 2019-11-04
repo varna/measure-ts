@@ -98,7 +98,7 @@ I'm not sure how imperial volume units "really" work (in practise), so create an
 | longton | Imperial Ton (long)            | Pound \* 2240      |
 | cwt     | American Hundredweight (short) | Pound \* 100       |
 | longcwt | Imperial Hundredweight (long)  | Pound \* 112       |
-| qr      | Quarter                        | Pound \* 28        |
+| qr      | Quarter                        | Pound \* 25        |
 | st      | Stone                          | Pound \* 14        |
 | oz      | Ounce                          | Pound / 16         |
 | dr      | Drachm                         | Pound / 256        |
