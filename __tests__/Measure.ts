@@ -351,7 +351,7 @@ describe('Weight units', () => {
   })
 
   test('qr', () => {
-    const measure = new Measure(12.70058636)
+    const measure = new Measure(11.33980925)
     const res = measure.to('qr')
     expect(String(res)).toBe('1 qr')
   })
